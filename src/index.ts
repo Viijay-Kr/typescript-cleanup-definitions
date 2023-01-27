@@ -2,7 +2,7 @@ type DefSource = string; // Source file the definitions is from
 type Config = {
   modules: Array<DefSource>;
   name: string;
-  enabled: boolean;
+  enable: boolean;
 };
 function init(modules: {
   typescript: typeof import("typescript/lib/tsserverlibrary");
@@ -11,7 +11,7 @@ function init(modules: {
     let settings: Config = {
       modules: [],
       name: "typescript-cleanup-definitions",
-      enabled: true,
+      enable: true,
     };
 
     function create(info: ts.server.PluginCreateInfo) {
@@ -34,7 +34,7 @@ function init(modules: {
         if (!prior) {
           return;
         }
-        if (settings.enabled) {
+        if (settings.enable) {
           prior.definitions = prior.definitions?.filter(({ fileName }) => {
             const matches = settings.modules.some((t) => fileName.includes(t));
             if (matches) return false;
