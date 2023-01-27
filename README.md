@@ -31,7 +31,5 @@ Add it as plugin to `tsconfig.json`
  ## Settings
  #### `enable`
  Enable or disable this plugin. Defaults to `true`
- #### `name`
- Name of the plugin.Defaults to `typescript-cleanup-defs`
  #### `modules`
  List of modules the plugin should omit the definitions from
