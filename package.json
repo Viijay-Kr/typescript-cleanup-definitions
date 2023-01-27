@@ -1,13 +1,13 @@
 {
   "name": "typescript-cleanup-definitions",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Typescript plugin to clean up desired type of definitions inside from declaration files inside a typescript project",
-  "main": "./out/index.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "publishConfig": {
-    "main":"./out/index.js"
+    "directory":"out"
   },
   "keywords": ["Typescript Plugin","Clean up typescript definitions"],
   "author": "",
