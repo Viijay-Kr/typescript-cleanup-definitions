@@ -1,6 +1,10 @@
 {
   "name": "typescript-cleanup-definitions",
-  "version": "1.0.4",
+  "version": "1.0.5",
+  "repository": {
+  "type": "public",
+  "url": "https://github.com/Viijay-Kr/typescript-cleanup-defs"
+  },
   "description": "Typescript plugin to clean up desired type of definitions inside from declaration files inside a typescript project",
   "main": "out/index.js",
   "scripts": {
