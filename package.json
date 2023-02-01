@@ -1,9 +1,9 @@
 {
   "name": "typescript-cleanup-definitions",
-  "version": "1.0.5",
+  "version": "1.1.0",
   "repository": {
-  "type": "public",
-  "url": "https://github.com/Viijay-Kr/typescript-cleanup-defs"
+    "type": "public",
+    "url": "https://github.com/Viijay-Kr/typescript-cleanup-defs"
   },
   "description": "Typescript plugin to clean up desired type of definitions inside from declaration files inside a typescript project",
   "main": "out/index.js",
@@ -12,9 +12,12 @@
     "prepublish": "cp package.json README.md LICENSE out/"
   },
   "publishConfig": {
-    "directory":"out"
+    "directory": "out"
   },
-  "keywords": ["Typescript Plugin","Clean up typescript definitions"],
+  "keywords": [
+    "Typescript Plugin",
+    "Clean up typescript definitions"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
