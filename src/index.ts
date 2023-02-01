@@ -4,7 +4,7 @@ type Config = {
   name: string;
   enable: boolean;
 };
-function init(modules: {
+function init({ typescript: ts }: {
   typescript: typeof import("typescript/lib/tsserverlibrary");
 }) {
   try {
@@ -35,9 +35,20 @@ function init(modules: {
           return;
         }
         if (settings.enable) {
-          prior.definitions = prior.definitions?.filter(({ fileName }) => {
-            const matches = settings.modules.some((t) => fileName.includes(t));
-            if (matches) return false;
+          prior.definitions = prior.definitions?.filter(({ fileName, textSpan, kind, name }) => {
+            if (kind === 'index' && name === '__index') {
+              const definitionNode = findNodeAtPosition(ts, info.languageService.getProgram()!.getSourceFile(fileName)!, textSpan.start)
+              let moduleDeclaration: ts.ModuleDeclaration | undefined
+              ts.findAncestor(definitionNode, node => {
+                if (ts.isModuleDeclaration(node)) {
+                  moduleDeclaration = node
+                  return 'quit'
+                }
+                return false
+              })
+              const cssModules = ['*.module.css', '*.module.scss', '*.module.sass', '*.module.less', '*.module.styl']
+              if (moduleDeclaration?.name.text && cssModules.includes(moduleDeclaration.name.text)) return false
+            }
             return true;
           });
         }
@@ -52,8 +63,20 @@ function init(modules: {
     }
     return { create, onConfigurationChanged };
   } catch (e) {
+    console.error(e)
     throw new Error("Cannot load `typescript-cleanup-definitions`");
   }
+}
+
+const findNodeAtPosition = (ts: typeof import("typescript/lib/tsserverlibrary"), sourceFile: ts.SourceFile, position: number) => {
+  function find(node: ts.Node): ts.Node | undefined {
+    if (position >= node.getStart() && position <= node.getEnd()) {
+      return ts.forEachChild(node, find) || node
+    }
+
+    return
+  }
+  return find(sourceFile)
 }
 
 export = init;
