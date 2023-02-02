@@ -13,3 +13,5 @@ packages:
     engines: {node: '>=4.2.0'}
     hasBin: true
     dev: false
+
+publishDirectory: out
