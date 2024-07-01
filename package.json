@@ -1,26 +1,31 @@
 {
-  "name": "typescript-cleanup-definitions",
-  "version": "1.1.0",
-  "repository": {
-    "type": "public",
-    "url": "https://github.com/Viijay-Kr/typescript-cleanup-defs"
-  },
-  "description": "Typescript plugin to clean up desired type of definitions inside from declaration files inside a typescript project",
-  "main": "out/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "prepublish": "cp package.json README.md LICENSE out/"
-  },
-  "publishConfig": {
-    "directory": "out"
-  },
-  "keywords": [
-    "Typescript Plugin",
-    "Clean up typescript definitions"
-  ],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "typescript": "^4.9.4"
-  }
+    "name": "typescript-cleanup-definitions",
+    "version": "1.1.0",
+    "repository": {
+        "type": "public",
+        "url": "https://github.com/Viijay-Kr/typescript-cleanup-defs"
+    },
+    "description": "Typescript plugin to clean up desired type of definitions inside from declaration files inside a typescript project",
+    "main": "out/index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "format": "prettier . --check",
+        "format:write": "prettier . --write",
+        "prepublish": "tsc && cp package.json README.md LICENSE out/"
+    },
+    "publishConfig": {
+        "directory": "out"
+    },
+    "keywords": [
+        "Typescript Plugin",
+        "Clean up typescript definitions"
+    ],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "typescript": "^4.9.4"
+    },
+    "devDependencies": {
+        "prettier": "^3.3.2"
+    }
 }
