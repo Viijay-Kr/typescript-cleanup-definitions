@@ -19,13 +19,21 @@ function init({
         function create(info: ts.server.PluginCreateInfo) {
             // Set up decorator object
             settings = info.config as Config
-            const proxy: ts.LanguageService = Object.create(null)
+            const proxy: ts.LanguageService = new Proxy(info.languageService, {
+                get(target, p, receiver) {
+                    return Reflect.get(target, p, receiver)
+                },
+                set(target, p, newValue, receiver) {
+                    return Reflect.set(target, p, newValue, receiver)
+                },
+            })
             for (let k of Object.keys(info.languageService) as Array<
                 keyof ts.LanguageService
             >) {
                 const x = info.languageService[k]!
                 // @ts-expect-error - JS runtime trickery which is tricky to type tersely
                 proxy[k] = (...args: Array<{}>) =>
+                    // @ts-expect-error - JS runtime trickery which is tricky to type tersely
                     x.apply(info.languageService, args)
             }
 
