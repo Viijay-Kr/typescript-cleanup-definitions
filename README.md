@@ -1,6 +1,6 @@
-# Typescript CleanUp Definitions
+# TypeScript CleanUp Definitions
 
--   [Typescript CleanUp Definitions](#typescript-cleanup-definitions)
+-   [TypeScript CleanUp Definitions](#typescript-cleanup-definitions)
     -   [What is it ?](#what-is-it-)
     -   [Installation](#installation)
     -   [Usage](#usage)
@@ -10,15 +10,15 @@
 
 ## What is it ?
 
-`typescript-cleanup-defs` is a simple typescript plugin that filters out [Go to definition](https://code.visualstudio.com/Docs/editor/editingevolved#_go-to-type-definition) results from any given set of declaration files
+`typescript-cleanup-definitions` is a simple TypeScript plugin that filters out [Go to definition](https://code.visualstudio.com/Docs/editor/editingevolved#_go-to-type-definition) results from any given set of declaration files
 
 ## Installation
 
-`npm install typescript-cleanup-defs`
+`npm install typescript-cleanup-definitions`
 
 or
 
-`yarn add typescript-cleanup-defs`
+`yarn add typescript-cleanup-definitions`
 
 ## Usage
 
@@ -31,7 +31,7 @@ Add the plugin to the `tsconfig.json`'s `compilerOptions`
     "compilerOptions": {
         "plugins": [
             {
-                "name": "typescript-cleanup-defs",
+                "name": "typescript-cleanup-definitions",
                 "enable": true,
                 "modules": ["*.module.css", "*.client.d.ts"]
             }
@@ -42,7 +42,7 @@ Add the plugin to the `tsconfig.json`'s `compilerOptions`
 
 ### VS Code Extension
 
-Add it as a typescript server plugin to the `package.json` `contributes` section
+Add it as a TypeScript server plugin to the `package.json` `contributes` section
 
 ```json
   "contributes":{
