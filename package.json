@@ -12,7 +12,7 @@
         "format": "prettier . --check",
         "format:write": "prettier . --write",
         "prepublish": "tsc && cp package.json README.md LICENSE out/",
-        "release":"npm run prepublish && npm publish"
+        "release":"npm run prepublish && changeset publish"
     },
     "publishConfig": {
         "directory": "out"
