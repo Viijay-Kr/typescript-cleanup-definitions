@@ -1,5 +1,11 @@
 # typescript-cleanup-definitions
 
+## 1.3.2
+
+### Patch Changes
+
+-   1bc0103: Move TypeScript to devDependencies to reduce package size
+
 ## 1.3.1
 
 ### Patch Changes
